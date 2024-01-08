@@ -407,3 +407,20 @@ Get-ADForest | select -ExpandProperty GlobalCatalogs
 Get-ADTrust -Filter 'msDS-TrustForestTrustInfo -ne "$null" '
 ```
 
+## ADSearch
+
+https://github.com/tomcarver16/ADSearch
+
+- Specify LDAP searches.
+
+```
+ADSearch.exe --search "<LDAP query>"
+```
+
+- Example to search for a domain group ending in admin
+
+```
+ADSearch.exe --search "(&(objectCategory=group)(cn=*Admins))"
+```
+
+- The output can be formatted in JSON with `--json`
