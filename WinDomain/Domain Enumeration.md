@@ -40,6 +40,11 @@ Get-DomainPolicy
 Get-DomainPolicy -domain <domain-name>
 ```
 
+```
+Get-DomainPolicyData | select -expand SystemAccess
+```
+
+
 - Get domain controllers:
 
 ```
@@ -53,11 +58,11 @@ Get-DomainController -Domain <domain-name>
 - List of users
 
 ```
-Get-NetUser
+Get-User
 
-Get-NetUser -Username <username>
+Get-User -Username <username>
 
-Get-NetUser | select cn
+Get-User | select cn
 ```
 
 - List of properties for users 
