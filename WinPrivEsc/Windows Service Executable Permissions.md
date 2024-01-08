@@ -34,6 +34,7 @@ accesschk64.exe -wvuc <service name>
 
 ## Exploitation
 
+- Stop the service
 - Replace the binary with a malicious one
 - restart the service
 
