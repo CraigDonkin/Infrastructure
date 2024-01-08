@@ -1,4 +1,4 @@
-Automated Issues Finders
+# Automated Issues Finders
 
 ## WinPEAS
 
