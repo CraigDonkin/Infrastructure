@@ -21,9 +21,9 @@ https://github.com/PowerShellMafia/PowerSploit/blob/dev/Recon/PowerView.ps1
 - Basic domain enumeration:
 
 ```
-Get-NetDomain
+Get-Domain
 
-Get-NetDomain -Domain <Domain-Name>
+Get-Domain -Domain <Domain-Name>
 
 Get-DomainSID
 ```
