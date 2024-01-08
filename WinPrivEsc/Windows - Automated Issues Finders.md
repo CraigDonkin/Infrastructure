@@ -72,7 +72,10 @@ https://github.com/GhostPack/SharpUp
 
 ```
 SharpUp.exe audit
+SharpUp.exe audit UnquotedServicePath
 ```
+
+
 
 ## PowerUp
 
