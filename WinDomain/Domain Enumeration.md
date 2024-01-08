@@ -43,9 +43,9 @@ Get-DomainPolicy -domain <domain-name>
 - Get domain controllers:
 
 ```
-Get-NetDomainController
+Get-DomainController
 
-Get-NetDomainController -Domain <domain-name>
+Get-DomainController -Domain <domain-name>
 ```
 
 ### User Information
@@ -90,13 +90,13 @@ Find-LocalAdminAccess -Verbose
   - ping uses ICMP
 
 ```
-Get-NetComputer
+Get-Computer
 
-Get-NetComputer -OperatingSystem "*searchterm*"
+Get-Computer -OperatingSystem "*searchterm*"
 
-Get-NetComputer -Ping
+Get-Computer -Ping
 
-Get-NetComputer -FullData
+Get-Computer -FullData
 ```
 
 ### Group Information
@@ -104,33 +104,33 @@ Get-NetComputer -FullData
 - List groups 
 
 ```
-Get-NetGroup
+Get-Group
 
-Get-NetGroup -Domain <domain name>
+Get-Group -Domain <domain name>
 
-Get-NetGroup -FullData
+Get-Group -FullData
 
-Get-NetGroup *admin*
+Get-Group *admin*
 ```
 
 - List members of groups
 
 ```
-Get-NetGroupMember -GroupName "searchterm" -Recurse
+Get-GroupMember -GroupName "searchterm" -Recurse
 
-Get-NetGroup -Username "<username>"
+Get-Group -Username "<username>"
 ```
 
 - List local groups on a machine (needs admin privs on non-dc machines)
 
 ```
-Get-NetLocalGroup -ComputerName <name> -ListGroups
+Get-LocalGroup -ComputerName <name> -ListGroups
 ```
 
 - Get members of local groups on a machine (needs admin privs on non-dc machines)
 
 ```
-Get-NetLocalGroup -ComputerName <name> -Recurse
+Get-LocalGroup -ComputerName <name> -Recurse
 ```
 
 ### Logon Information
@@ -138,7 +138,7 @@ Get-NetLocalGroup -ComputerName <name> -Recurse
 - Get actively logged in users on a computer (local admin)
 
 ```
-Get-NetLoggedon -ComputerName <name>
+Get-Loggedon -ComputerName <name>
 ```
 
 - Get locally logged users (needs remote registry)
@@ -180,13 +180,13 @@ Get-NetFileServer -verbose
 - List of GPO
 
 ```
-Get-NetGPO
+Get-GPO
 
-Get-NetGPO | select displayname
+Get-GPO | select displayname
 
-Get-NetGPO -ComputerName <name>
+Get-GPO -ComputerName <name>
 
-Get-NetGPOGroup
+Get-GPOGroup
 ```
 
 - Get users in a local group on a machine using GPO
@@ -206,13 +206,13 @@ Find-GPOLocation -UserName <name> -Verbose
 - Get Organisational Units in a domain
 
 ```
-Get-NetOU -FullData
+Get-OU -FullData
 ```
 
 - Find out which GPO is applied on an OU
 
 ```
-Get-NetGPO -GPOname "{<GPOname from gplink attribute in Get-NetOU}"
+Get-GPO -GPOname "{<GPOname from gplink attribute in Get-NetOU}"
 ```
 
 ### Domain ACL Information
@@ -242,32 +242,32 @@ Get-PathAcl -Path "\\"
 - Get list of domain trusts
 
 ```
-Get-NetDomainTrust
+Get-DomainTrust
 
-Get-NetDomainTrust -Domain <name>
+Get-DomainTrust -Domain <name>
 ```
 
 - Get list of forest trusts
 
 ```
-Get-NetForest
+Get-Forest
 
-Get-NetForest -Forest <name>
+Get-Forest -Forest <name>
 
-Get-NetForestDomain
+Get-ForestDomain
 
-Get-NetForestDomain -Forest <name>
+Get-ForestDomain -Forest <name>
 ```
 
 - Get All global catalogs for the current forest
 
 ```
-Get-NetForestCatalog
+Get-ForestCatalog
 
-Get-NetForestCatalog -Forest <name>
+Get-ForestCatalog -Forest <name>
 
-Get-NetForestTrust
-Get-NetForestTrust -Forest <name>
+Get-ForestTrust
+Get-ForestTrust -Forest <name>
 ```
 
 
