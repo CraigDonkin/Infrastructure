@@ -23,4 +23,9 @@ https://github.com/Sw4mpf0x/PowerLurk
 powershell-import PowerLurk.ps1
 powershell Register-MaliciousWMIEvent - EventName <name> -PermanentCommand <payload> -Trigger <trigger> -ProcessName <process>
 ```
-* To load a payload whenever notepad is started, the trigger would be ProcessStart and the ProcessName would be notepad.exe 
+* To load a payload whenever notepad is started, the trigger would be ProcessStart and the ProcessName would be notepad.exe
+* To remove it run:
+
+  ```
+  Get-WmiEvent -Name <name> | Remove-WmiObject
+  ```
