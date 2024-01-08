@@ -251,8 +251,11 @@ Get-ForestCatalog -Forest <name>
 Get-ForestTrust
 Get-ForestTrust -Forest <name>
 ```
+## SharpView
 
+https://github.com/tevora-threat/SharpView
 
+- .Net Port of SharpView
 
 ## ActiveDirectory Powershell Module 
 
