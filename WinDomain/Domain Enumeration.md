@@ -55,29 +55,18 @@ Get-DomainController -Domain <domain-name>
 
 ### User Information
 
-- List of users
+- List of all users
 
 ```
-Get-User
-
-Get-User -Username <username>
-
-Get-User | select cn
+Get-DomainUser
 ```
-
-- List of properties for users 
+ - List a specific user 
 
 ```
-Get-UserProperty
-
-Get-UserProperty -properties <property>
+Get-DomainUser -Identity <username>
+Get-DomainUser -Identity <username> -Properties <property1> <property2> <property..> 
 ```
 
-- Search for sensitive information id Description field 
-
-```
-Find-UserField -SearchField Description -SearchTerm ""
-```
 
 - Find all machines where current user has local admin access
   - Performs Get-NetComputer and then Invoke-CheckLocalAdminAccess
@@ -95,35 +84,25 @@ Find-LocalAdminAccess -Verbose
   - ping uses ICMP
 
 ```
-Get-Computer
+Get-DomainComputer
+Get-DomainComputer -Properties <property> | sort -Property <property>
 
-Get-Computer -OperatingSystem "*searchterm*"
-
-Get-Computer -Ping
-
-Get-Computer -FullData
 ```
+
+
 
 ### Group Information
 
 - List groups 
 
 ```
-Get-Group
-
-Get-Group -Domain <domain name>
-
-Get-Group -FullData
-
-Get-Group *admin*
+Get-DomainGroup
 ```
 
 - List members of groups
 
 ```
-Get-GroupMember -GroupName "searchterm" -Recurse
-
-Get-Group -Username "<username>"
+Get-DomainGroupMember -Identity <group name> 
 ```
 
 - List local groups on a machine (needs admin privs on non-dc machines)
@@ -185,33 +164,33 @@ Get-NetFileServer -verbose
 - List of GPO
 
 ```
-Get-GPO
+Get-DomainGPO
 
-Get-GPO | select displayname
-
-Get-GPO -ComputerName <name>
-
-Get-GPOGroup
+Get-DomainGPO -Properties DisplayName
 ```
 
-- Get users in a local group on a machine using GPO
+- List of GPOs that modify local group membership
 
 ```
-Find-GPOComputerAdmin -Computername <name>
+Get-DomainGPOLocalGroup
 ```
 
-- List machines where the given user is a member of a group
+- List machines where a specific user/group is a member of a specific group
 
 ```
-Find-GPOLocation -UserName <name> -Verbose
+Get-DomainGPOUserLocalGroupMapping -LocalGroup <group name> 
 ```
+
+
+
+
 
 ### Organisational Unit Information
 
 - Get Organisational Units in a domain
 
 ```
-Get-OU -FullData
+Get-DomainOU -Properties <property>
 ```
 
 - Find out which GPO is applied on an OU
@@ -248,8 +227,6 @@ Get-PathAcl -Path "\\"
 
 ```
 Get-DomainTrust
-
-Get-DomainTrust -Domain <name>
 ```
 
 - Get list of forest trusts
